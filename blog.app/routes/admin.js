@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 const Blog = require("../models/blog");
+const Contact = require("../models/Contact");
 
 const adminLayout = "../views/layouts/admin";
 const jwtSecret = process.env.JWT_SECRET;
@@ -68,7 +69,8 @@ router.get("/dashboard", async (req, res) => {
       description: "A Nodejs Blog App built with Nodejs, Express and MongoDB",
     };
     const data = await Blog.find();
-    res.render("admin/dashboard", { locals, data, layout: adminLayout});
+    const contact = await Contact.find();
+    res.render("admin/dashboard", { locals, data, contact, layout: adminLayout});
   } catch (error) {
     console.log(error);
   }

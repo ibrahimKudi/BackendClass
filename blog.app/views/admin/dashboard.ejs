@@ -21,5 +21,30 @@
   
       </li>
       <% }) %>
+  </ul>
+
+
+
+
+  <div class="admin-title">
+    <h2>Contact</h2>
+  </div>
   
+  <ul class="admin-posts">
+     <% contact.forEach(contact => { %>
+      
+      
+      <li>
+        <a href="/contact/<%= contact._id %>">
+          <%= contact.name %> &nearr;
+        </a>
+        <div class="admin-post-controls">
+          <a href="/contact/<%= contact._id %>" class="btn">View</a>
+          
+        </div>
+        
+      </li>
+
+      <% }) %>
+
   </ul>
